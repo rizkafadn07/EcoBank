@@ -1,0 +1,989 @@
+<!DOCTYPE HTML>
+<html lang="id">
+<head>
+	<title>EcoBank - Katalog Bank Sampah & Edukasi Daur Ulang</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	
+	<!-- Google Fonts & FontAwesome -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	
+	<style>
+		:root {
+			--pastel-bg: #f8faf7;
+			--pastel-green: #e2f0d9;
+			--pastel-mint: #d1e7dd;
+			--pastel-accent: #52b788;
+			--pastel-dark: #2d6a4f;
+			--pastel-cream: #fffdf9;
+			--text-main: #2b2d42;
+			--text-sub: #6c757d;
+			--glass-bg: rgba(255, 255, 255, 0.75);
+			--glass-border: rgba(255, 255, 255, 0.4);
+			--shadow-soft: 0 20px 40px rgba(45, 106, 79, 0.08);
+		}
+
+		body {
+			font-family: 'Plus Jakarta Sans', sans-serif !important;
+			background-color: var(--pastel-bg) !important;
+			color: var(--text-main) !important;
+			overflow-x: hidden;
+		}
+
+		/* Custom Header Nav */
+		#header {
+			background: rgba(248, 250, 247, 0.85) !important;
+			backdrop-filter: blur(12px);
+			border-bottom: 1px solid var(--glass-border);
+			position: fixed !important;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1000;
+			padding: 1rem 3rem !important;
+		}
+
+		#header #logo a {
+			color: var(--pastel-dark) !important;
+			font-weight: 800;
+			font-size: 1.4rem;
+			letter-spacing: -0.5px;
+		}
+
+		#header #logo span {
+			background: var(--pastel-accent);
+			color: #fff;
+			padding: 0.2rem 0.6rem;
+			border-radius: 8px;
+			font-size: 0.8rem;
+			margin-left: 0.4rem;
+		}
+
+		/* Hero Banner Modern */
+		.hero-modern {
+			min-height: 90vh;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 8rem 10% 4rem 10%;
+			background: radial-gradient(circle at 10% 20%, #e8f5e9 0%, #f8faf7 90%);
+			position: relative;
+		}
+
+		.hero-content {
+			max-width: 550px;
+			z-index: 2;
+		}
+
+		.badge-pill {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			background: #e8f5e9;
+			color: var(--pastel-dark);
+			padding: 8px 16px;
+			border-radius: 50px;
+			font-size: 0.85rem;
+			font-weight: 600;
+			margin-bottom: 1.5rem;
+			border: 1px solid rgba(82, 183, 136, 0.3);
+			animation: fadeIn 1s ease-out;
+		}
+
+		.hero-title {
+			font-size: 3.2rem !important;
+			font-weight: 800 !important;
+			line-height: 1.2 !important;
+			color: var(--pastel-dark) !important;
+			margin-bottom: 1.2rem !important;
+		}
+
+		.hero-title span {
+			color: var(--pastel-accent);
+			position: relative;
+		}
+
+		.hero-desc {
+			font-size: 1.1rem;
+			color: var(--text-sub);
+			line-height: 1.6;
+			margin-bottom: 2rem;
+		}
+
+		/* Interaktif Floating Illustration */
+		.hero-visual {
+			position: relative;
+			z-index: 2;
+		}
+
+		.main-card-illus {
+			width: 380px;
+			height: 420px;
+			background: var(--glass-bg);
+			backdrop-filter: blur(16px);
+			border: 1px solid var(--glass-border);
+			border-radius: 30px;
+			box-shadow: var(--shadow-soft);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 2rem;
+			position: relative;
+			animation: float 6s ease-in-out infinite;
+		}
+
+		.floating-badge {
+			position: absolute;
+			background: #ffffff;
+			padding: 12px 20px;
+			border-radius: 16px;
+			box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			font-weight: 700;
+			font-size: 0.9rem;
+			color: var(--pastel-dark);
+		}
+
+		.badge-1 {
+			top: -20px;
+			left: -40px;
+			animation: floatSlow 5s ease-in-out infinite;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+		.badge-1:hover {
+			transform: scale(1.05);
+			background: #f1f8e9;
+		}
+
+		.badge-2 {
+			bottom: 20px;
+			right: -30px;
+			animation: floatSlow 7s ease-in-out infinite reverse;
+		}
+
+		/* Row Equal Height Fix */
+		.equal-height-row {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.equal-height-col {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 2rem;
+		}
+
+		/* Glassmorphism Cards Symmetrical */
+		.glass-card {
+			background: rgba(255, 255, 255, 0.85) !important;
+			backdrop-filter: blur(10px);
+			border-radius: 24px !important;
+			border: 1px solid var(--glass-border) !important;
+			box-shadow: var(--shadow-soft) !important;
+			padding: 1.8rem 1.5rem !important;
+			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 100%;
+			width: 100%;
+		}
+
+		.glass-card:hover {
+			transform: translateY(-8px) !important;
+			box-shadow: 0 25px 50px rgba(45, 106, 79, 0.12) !important;
+			background: #ffffff !important;
+		}
+
+		.card-header-box h3 {
+			font-weight: 700;
+			color: var(--pastel-dark);
+			margin: 0 0 0.8rem 0;
+			line-height: 1.3;
+			font-size: 1.15rem;
+		}
+
+		/* Custom Buttons */
+		.btn-pastel {
+			background: var(--pastel-dark) !important;
+			color: #ffffff !important;
+			border-radius: 12px !important;
+			padding: 0.75rem 1.5rem !important;
+			font-weight: 700 !important;
+			border: none !important;
+			transition: all 0.3s ease !important;
+			box-shadow: 0 8px 16px rgba(45, 106, 79, 0.15);
+			display: inline-block;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.btn-pastel:hover {
+			background: var(--pastel-accent) !important;
+			transform: translateY(-2px);
+			box-shadow: 0 12px 20px rgba(82, 183, 136, 0.25);
+		}
+
+		.btn-outline {
+			background: transparent !important;
+			color: var(--pastel-dark) !important;
+			border: 2px solid var(--pastel-dark) !important;
+			border-radius: 12px !important;
+			padding: 0.65rem 1.2rem !important;
+			font-weight: 700 !important;
+			transition: all 0.3s ease !important;
+			display: inline-block;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.btn-outline:hover {
+			background: var(--pastel-green) !important;
+			border-color: var(--pastel-green) !important;
+		}
+
+		/* Icon Animations */
+		.icon-circle {
+			width: 60px;
+			height: 60px;
+			background: var(--pastel-green);
+			color: var(--pastel-dark);
+			border-radius: 16px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.5rem;
+			margin-bottom: 1.2rem;
+			transition: transform 0.4s ease;
+		}
+
+		.glass-card:hover .icon-circle {
+			transform: rotate(12deg) scale(1.08);
+			background: var(--pastel-accent);
+			color: #fff;
+		}
+
+		/* Modal Popup Style (Edukasi & Harga) */
+		.modal-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(43, 45, 66, 0.6);
+			backdrop-filter: blur(8px);
+			z-index: 2000;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			padding: 1.5rem;
+		}
+
+		.modal-content {
+			background: #ffffff;
+			border-radius: 24px;
+			max-width: 680px;
+			width: 100%;
+			padding: 2.5rem 2rem 2rem 2rem;
+			position: relative !important;
+			box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+			animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			max-height: 90vh;
+			overflow-y: auto;
+		}
+
+		.modal-close {
+			position: absolute !important;
+			top: 15px !important;
+			right: 15px !important;
+			background: #f1f5f9 !important;
+			border: none !important;
+			width: 32px !important;
+			height: 32px !important;
+			border-radius: 50% !important;
+			font-size: 0.9rem !important;
+			color: #2d6a4f !important;
+			cursor: pointer;
+			display: flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+			transition: all 0.2s ease !important;
+			padding: 0 !important;
+			margin: 0 !important;
+			line-height: 1 !important;
+			box-shadow: none !important;
+		}
+
+		.modal-close:hover {
+			background: #e63946 !important;
+			color: #ffffff !important;
+		}
+
+		/* STYLE SPESIFIK: TIX ID STYLE LOCATION MODAL */
+		.tix-modal-backdrop {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(43, 45, 66, 0.6);
+			backdrop-filter: blur(8px);
+			z-index: 9999;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			padding: 1rem;
+		}
+		.tix-modal-backdrop.active {
+			display: flex;
+		}
+		.tix-modal-card {
+			background: #ffffff;
+			width: 100%;
+			max-width: 440px;
+			height: 85vh;
+			max-height: 600px;
+			border-radius: 20px;
+			box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+			animation: zoomIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		}
+		.tix-modal-header {
+			padding: 16px 20px;
+			border-bottom: 1px solid #edf2f7;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			background: #fff;
+		}
+		.tix-back-btn {
+			background: none;
+			border: none;
+			font-size: 1.2rem;
+			cursor: pointer;
+			color: var(--pastel-dark);
+			padding: 4px;
+		}
+		.tix-search-input {
+			flex: 1;
+			border: none !important;
+			outline: none !important;
+			font-size: 0.95rem;
+			color: var(--text-main);
+			background: transparent !important;
+			box-shadow: none !important;
+			padding: 0 !important;
+		}
+		.tix-modal-body {
+			flex: 1;
+			overflow-y: auto;
+			padding: 0;
+		}
+		.tix-city-item {
+			padding: 14px 24px;
+			font-size: 0.9rem;
+			font-weight: 600;
+			color: #4a5568;
+			border-bottom: 1px solid #f7fafc;
+			cursor: pointer;
+			transition: all 0.15s ease;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+		}
+		.tix-city-item:hover {
+			background: #e8f5e9;
+			color: var(--pastel-dark);
+			padding-left: 28px;
+		}
+		.tix-modal-footer {
+			padding: 16px 20px;
+			border-top: 1px solid #edf2f7;
+			background: #ffffff;
+		}
+		.tix-gps-btn {
+			width: 100%;
+			background: var(--pastel-dark) !important;
+			color: #ffffff !important;
+			border: none !important;
+			padding: 12px;
+			border-radius: 12px !important;
+			font-weight: 700 !important;
+			font-size: 0.9rem;
+			cursor: pointer;
+			text-align: center;
+			transition: all 0.2s ease;
+			box-shadow: 0 4px 12px rgba(45, 106, 79, 0.15);
+		}
+		.tix-gps-btn:hover {
+			background: var(--pastel-accent) !important;
+		}
+
+		.sample-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.5rem;
+			margin-top: 1.5rem;
+		}
+
+		.sample-box {
+			background: var(--pastel-bg);
+			border-radius: 20px;
+			padding: 1.5rem;
+			border: 1px solid var(--pastel-mint);
+			text-align: center;
+		}
+
+		.sample-box img {
+			width: 100%;
+			height: 160px;
+			object-fit: cover;
+			border-radius: 12px;
+			margin-bottom: 1rem;
+		}
+
+		/* Price Table Styling */
+		.price-table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 1rem;
+		}
+
+		.price-table th, .price-table td {
+			padding: 12px;
+			text-align: left;
+			border-bottom: 1px solid var(--pastel-mint);
+			font-size: 0.9rem;
+		}
+
+		.price-table th {
+			background-color: var(--pastel-green);
+			color: var(--pastel-dark);
+			font-weight: 700;
+		}
+
+		/* Keyframe Animations */
+		@keyframes float {
+			0%, 100% { transform: translateY(0px); }
+			50% { transform: translateY(-18px); }
+		}
+
+		@keyframes floatSlow {
+			0%, 100% { transform: translateY(0px) rotate(0deg); }
+			50% { transform: translateY(-10px) rotate(2deg); }
+		}
+
+		@keyframes fadeIn {
+			from { opacity: 0; transform: translateY(10px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+
+		@keyframes zoomIn {
+			from { opacity: 0; transform: scale(0.85); }
+			to { opacity: 1; transform: scale(1); }
+		}
+
+		/* Section Styling */
+		.section-padding {
+			padding: 5rem 10%;
+		}
+
+		.section-title {
+			text-align: center;
+			margin-bottom: 3rem;
+		}
+
+		.section-title h2 {
+			font-size: 2.2rem;
+			font-weight: 800;
+			color: var(--pastel-dark);
+		}
+
+		.section-title p {
+			color: var(--text-sub);
+			font-size: 1rem;
+		}
+
+		/* Responsive Adjustments */
+		@media (max-width: 992px) {
+			.hero-modern {
+				flex-direction: column;
+				text-align: center;
+				padding-top: 7rem;
+			}
+			.hero-content {
+				max-width: 100%;
+			}
+			.hero-visual {
+				margin-top: 3rem;
+			}
+			.floating-badge {
+				display: none;
+			}
+			.sample-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+<body class="index is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header Navigation -->
+		<header id="header">
+			<h1 id="logo"><a href="index.html">EcoBank <span>SDGs 2026</span></a></h1>
+			<nav id="nav">
+				<ul>
+					<li class="current"><a href="index.html">Beranda</a></li>
+					<li><a href="#katalog">Katalog Bank Sampah</a></li>
+					<li><a href="#edukasi">Edukasi Daur Ulang</a></li>
+					<li><a href="contact.html" class="btn-pastel" style="padding: 0.5rem 1.2rem !important; font-size: 0.85rem;">Hubungi Kami</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Hero Section Interactive -->
+		<section class="hero-modern">
+			<div class="hero-content">
+				<div class="badge-pill">
+					<i class="fas fa-leaf"></i> Inovasi Ekosistem Digital Berkelanjutan
+				</div>
+				<h1 class="hero-title">Kelola Sampah Jadi <span>Nilai Kebaikan</span></h1>
+				<p class="hero-desc">Platform terintegrasi untuk menemukan lokasi Bank Sampah terdekat, memantau nilai tukar daur ulang, dan mempercepat transformasi lingkungan hijau.</p>
+				<div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+					<a href="#katalog" class="btn-pastel">Jelajahi Katalog</a>
+					<a href="#edukasi" class="btn-outline">Panduan Edukasi</a>
+				</div>
+			</div>
+
+			<!-- Interactive Visual Feature -->
+			<div class="hero-visual">
+				<div class="main-card-illus">
+					<div class="icon-circle" style="width:90px; height:90px; font-size: 2.5rem;">
+						<i class="fas fa-recycle"></i>
+					</div>
+					<h3 style="color: var(--pastel-dark); font-weight:800; margin-bottom: 0.5rem;">EcoBank Digital</h3>
+					<p style="text-align: center; color: var(--text-sub); font-size: 0.9rem;">Menghubungkan masyarakat dengan 100+ jaringan bank sampah terverifikasi.</p>
+					
+					<!-- Badge Lokasi Interaktif TIX ID Style -->
+					<div class="floating-badge badge-1" onclick="openLocationModal()" title="Klik untuk ubah lokasi real-time">
+						<i class="fas fa-map-marker-alt" style="color: #e63946;"></i>
+						<span id="currentLocationBadgeText">15+ Lokasi Medan</span> <i class="fas fa-chevron-down" style="font-size: 0.75rem; color: #a0aec0;"></i>
+					</div>
+
+					<div class="floating-badge badge-2">
+						<i class="fas fa-coins" style="color: #ffb703;"></i>
+						<span>Tukar Tabungan</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Main Section: Katalog Bank Sampah -->
+		<section id="katalog" class="section-padding" style="background: #ffffff;">
+			<div class="section-title">
+				<h2>Katalog Bank Sampah Terdekat</h2>
+				<p>Cari dan temukan lokasi titik penyetoran sampah daur ulang di sekitarmu.</p>
+			</div>
+
+			<div class="row equal-height-row">
+				<!-- Card 1 -->
+				<div class="col-4 col-12-narrower equal-height-col">
+					<div class="glass-card">
+						<div>
+							<div class="icon-circle">
+								<i class="fas fa-dumpster"></i>
+							</div>
+							<div class="card-header-box">
+								<h3>Bank Sampah Berkah</h3>
+							</div>
+							<p style="color: var(--text-sub); font-size: 0.9rem; margin-bottom: 1.2rem;">
+								<i class="fas fa-map-pin" style="color: var(--pastel-accent); margin-right: 6px;"></i> Kec. <span class="district-name">Medan Kota</span><br>
+								<i class="fas fa-box" style="color: var(--pastel-accent); margin-right: 6px;"></i> Plastik, Kertas, Logam
+							</p>
+						</div>
+						<div>
+							<span style="display:block; background: var(--pastel-green); color: var(--pastel-dark); padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; text-align: center;">Buka: 08.00 - 16.00 WIB</span>
+							<a id="mapLink1" href="https://www.google.com/maps/search/?api=1&query=Bank+Sampah+Medan+Kota" target="_blank" class="btn-outline" style="width: 100%; text-align: center;">
+								<i class="fas fa-directions" style="margin-right: 6px;"></i> Detail Lokasi
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Card 2 -->
+				<div class="col-4 col-12-narrower equal-height-col">
+					<div class="glass-card">
+						<div>
+							<div class="icon-circle">
+								<i class="fas fa-wine-bottle"></i>
+							</div>
+							<div class="card-header-box">
+								<h3>Bank Sampah Peduli Hijau</h3>
+							</div>
+							<p style="color: var(--text-sub); font-size: 0.9rem; margin-bottom: 1.2rem;">
+								<i class="fas fa-map-pin" style="color: var(--pastel-accent); margin-right: 6px;"></i> Kec. <span class="district-name">Medan Baru</span><br>
+								<i class="fas fa-box" style="color: var(--pastel-accent); margin-right: 6px;"></i> Botol PET, Kardus, Jelantah
+							</p>
+						</div>
+						<div>
+							<span style="display:block; background: var(--pastel-green); color: var(--pastel-dark); padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; text-align: center;">Buka: 09.00 - 15.00 WIB</span>
+							<a id="mapLink2" href="https://www.google.com/maps/search/?api=1&query=Bank+Sampah+Medan+Baru" target="_blank" class="btn-outline" style="width: 100%; text-align: center;">
+								<i class="fas fa-directions" style="margin-right: 6px;"></i> Detail Lokasi
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Card 3 -->
+				<div class="col-4 col-12-narrower equal-height-col">
+					<div class="glass-card">
+						<div>
+							<div class="icon-circle">
+								<i class="fas fa-seedling"></i>
+							</div>
+							<div class="card-header-box">
+								<h3>Bank Sampah Asri Sejahtera</h3>
+							</div>
+							<p style="color: var(--text-sub); font-size: 0.9rem; margin-bottom: 1.2rem;">
+								<i class="fas fa-map-pin" style="color: var(--pastel-accent); margin-right: 6px;"></i> Kec. <span class="district-name">Medan Selayang</span><br>
+								<i class="fas fa-box" style="color: var(--pastel-accent); margin-right: 6px;"></i> Organik &amp; Anorganik
+							</p>
+						</div>
+						<div>
+							<span style="display:block; background: var(--pastel-green); color: var(--pastel-dark); padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; text-align: center;">Buka: 08.00 - 17.00 WIB</span>
+							<a id="mapLink3" href="https://www.google.com/maps/search/?api=1&query=Bank+Sampah+Medan+Selayang" target="_blank" class="btn-outline" style="width: 100%; text-align: center;">
+								<i class="fas fa-directions" style="margin-right: 6px;"></i> Detail Lokasi
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Section: Edukasi & Fitur -->
+		<section id="edukasi" class="section-padding">
+			<div class="section-title">
+				<h2>Edukasi & Langkah Pemilahan</h2>
+				<p>Pelajari cara memilah sampah dengan benar untuk memaksimalkan hasil daur ulang.</p>
+			</div>
+
+			<div class="row equal-height-row">
+				<!-- Fitur 1: Pilah Dari Rumah -->
+				<div class="col-6 col-12-narrower equal-height-col">
+					<div class="glass-card">
+						<div style="display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 1.5rem;">
+							<div class="icon-circle" style="flex-shrink: 0;">
+								<i class="fas fa-sort-amount-down"></i>
+							</div>
+							<div>
+								<h3 style="font-weight:700; color:var(--pastel-dark); margin-bottom: 0.5rem;">Pilah dari Rumah</h3>
+								<p style="color: var(--text-sub); font-size: 0.95rem; margin-bottom: 0;">Pisahkan kategori sampah basah (organik) dan sampah kering (anorganik) sejak dari wadah penampungan pertama di rumahmu.</p>
+							</div>
+						</div>
+						<div>
+							<button onclick="openModal('sampleModal')" class="btn-pastel" style="width: 100%; text-align: center; font-size: 0.9rem;">
+								<i class="fas fa-images" style="margin-right: 8px;"></i> Lihat Contoh Sampah Organik &amp; Anorganik
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Fitur 2: Pantau Nilai Ekonomi -->
+				<div class="col-6 col-12-narrower equal-height-col">
+					<div class="glass-card">
+						<div style="display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 1.5rem;">
+							<div class="icon-circle" style="flex-shrink: 0;">
+								<i class="fas fa-chart-line"></i>
+							</div>
+							<div>
+								<h3 style="font-weight:700; color:var(--pastel-dark); margin-bottom: 0.5rem;">Pantau Nilai Ekonomi</h3>
+								<p style="color: var(--text-sub); font-size: 0.95rem; margin-bottom: 0;">Cek estimasi harga konversi poin atau nilai rupiah per kilogram untuk setiap jenis limbah daur ulang yang kamu setorkan.</p>
+							</div>
+						</div>
+						<div>
+							<button onclick="openModal('priceModal')" class="btn-outline" style="width: 100%; text-align: center; font-size: 0.9rem;">
+								<i class="fas fa-calculator" style="margin-right: 8px;"></i> Cek Estimasi Harga Sampah
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- MODAL BARU: PEMILIH LOKASI REAL-TIME (TIX ID STYLE) -->
+		<div class="tix-modal-backdrop" id="tixLocationModal">
+			<div class="tix-modal-card">
+				<div class="tix-modal-header">
+					<button type="button" class="tix-back-btn" onclick="closeLocationModal()"><i class="fas fa-arrow-left"></i></button>
+					<input type="text" class="tix-search-input" id="tixSearchInput" placeholder="Masukkan Kata Kunci" oninput="filterCities()">
+				</div>
+				<div class="tix-modal-body" id="tixCityList">
+					<!-- Daftar kota dirender secara dinamis oleh JavaScript -->
+				</div>
+				<div class="tix-modal-footer">
+					<button type="button" class="tix-gps-btn" id="tixGpsBtn" onclick="useCurrentGPSLocation()">
+						<i class="fas fa-crosshairs" style="margin-right: 6px;"></i> Gunakan Lokasi Saya Saat Ini
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal 1: Contoh Jenis Sampah -->
+		<div id="sampleModal" class="modal-overlay">
+			<div class="modal-content">
+				<button type="button" class="modal-close" onclick="closeModal('sampleModal')">&#10005;</button>
+				<h2 style="color: var(--pastel-dark); font-weight: 800; margin-bottom: 0.3rem; text-align: center; margin-top: 0.5rem;">Contoh Jenis Sampah</h2>
+				<p style="text-align: center; color: var(--text-sub); font-size: 0.9rem; margin-bottom: 1.5rem;">Ketahui perbedaan sampah basah dan kering sebelum menyetorkannya.</p>
+
+				<div class="sample-grid">
+					<!-- Sampah Basah (Organik) -->
+					<div class="sample-box">
+						<img src="https://mmc2.kalteng.go.id/files/berita/22052018091450_1.jpg" alt="Sampah Organik">
+						<h4 style="color: var(--pastel-dark); font-weight: 700; margin-bottom: 0.5rem;">
+							<i class="fas fa-apple-alt" style="color: #e63946; margin-right: 6px;"></i> Sampah Basah (Organik)
+						</h4>
+						<p style="color: var(--text-sub); font-size: 0.85rem; margin: 0; text-align: left;">
+							• Sisa makanan &amp; sayuran<br>
+							• Kulit buah-buahan<br>
+							• Daun &amp; ranting pohon<br>
+							• Sisa tulang &amp; daging
+						</p>
+					</div>
+
+					<!-- Sampah Kering (Anorganik) -->
+					<div class="sample-box">
+						<img src="images/anorganik.jpg" alt="Sampah Anorganik">
+						<h4 style="color: var(--pastel-dark); font-weight: 700; margin-bottom: 0.5rem;">
+							<i class="fas fa-box-open" style="color: var(--pastel-accent); margin-right: 6px;"></i> Sampah Kering (Anorganik)
+						</h4>
+						<p style="color: var(--text-sub); font-size: 0.85rem; margin: 0; text-align: left;">
+							• Botol &amp; gelas plastik<br>
+							• Kardus &amp; kertas bekas<br>
+							• Kaleng minuman / logam<br>
+							• Botol kaca &amp; kemasan
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal 2: Estimasi Harga Sampah -->
+		<div id="priceModal" class="modal-overlay">
+			<div class="modal-content">
+				<button type="button" class="modal-close" onclick="closeModal('priceModal')">&#10005;</button>
+				<h2 style="color: var(--pastel-dark); font-weight: 800; margin-bottom: 0.3rem; text-align: center; margin-top: 0.5rem;">Estimasi Harga Sampah</h2>
+				<p style="text-align: center; color: var(--text-sub); font-size: 0.9rem; margin-bottom: 1.5rem;">Daftar perkiraan nilai tukar per kilogram (Kg) di Bank Sampah mitra.</p>
+
+				<table class="price-table">
+					<thead>
+						<tr>
+							<th>Jenis Sampah</th>
+							<th>Kategori</th>
+							<th>Estimasi Harga / Kg</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Botol Plastik PET Bersih</td>
+							<td>Plastik</td>
+							<td><strong>Rp 3.500 - Rp 4.500</strong></td>
+						</tr>
+						<tr>
+							<td>Gelas Plastik Bening</td>
+							<td>Plastik</td>
+							<td><strong>Rp 3.000 - Rp 4.000</strong></td>
+						</tr>
+						<tr>
+							<td>Kardus Bekas Kering</td>
+							<td>Kertas</td>
+							<td><strong>Rp 1.800 - Rp 2.500</strong></td>
+						</tr>
+						<tr>
+							<td>Kertas HVS / Buku Bekas</td>
+							<td>Kertas</td>
+							<td><strong>Rp 2.000 - Rp 2.800</strong></td>
+						</tr>
+						<tr>
+							<td>Kaleng Alumunium Minuman</td>
+							<td>Logam</td>
+							<td><strong>Rp 12.000 - Rp 15.000</strong></td>
+						</tr>
+						<tr>
+							<td>Minyak Jelantah (Olahan)</td>
+							<td>Khusus</td>
+							<td><strong>Rp 5.000 - Rp 7.000 / Liter</strong></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer" style="background: #2d6a4f !important; color: #ffffff !important; padding: 4rem 10% 2rem 10%;">
+			<div style="text-align: center; margin-bottom: 2rem;">
+				<h2 style="color: #ffffff; font-weight: 800;">EcoBank Indonesia</h2>
+				<p style="color: var(--pastel-mint);">Mewujudkan Ekosistem Digital Berkelanjutan untuk Masa Depan.</p>
+			</div>
+			<ul class="copyright" style="color: rgba(255,255,255,0.6); text-align: center;">
+				<li>&copy; EcoBank 2026. All rights reserved.</li>
+			</ul>
+		</footer>
+
+	</div>
+
+	<!-- JavaScript Gabungan (Modal Asli + Fitur Lokasi Real-Time TIX ID + Google Maps Link Realtime) -->
+	<script>
+		// Fungsi Modal Bawaan Anda (Edukasi & Harga)
+		function openModal(modalId) {
+			document.getElementById(modalId).style.display = 'flex';
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeModal(modalId) {
+			document.getElementById(modalId).style.display = 'none';
+			document.body.style.overflow = 'auto';
+		}
+
+		// LOGIKA FITUR PEMILIH LOKASI REAL-TIME (TIX ID STYLE)
+		const citiesList = [
+			"AMBON", "BALI", "BALIKPAPAN", "BANDUNG", "BANJARBARU", "BANJARMASIN", 
+			"BATAM", "BATU", "BAUBAU", "BEKASI", "BENGKULU", "BINJAI", "BLITAR", 
+			"BOGOR", "BONDOWOSO", "JAKARTA", "MEDAN", "PADANG", "PALEMBANG", 
+			"PEKANBARU", "SEMARANG", "SURABAYA", "SURAKARTA", "YOGYAKARTA"
+		];
+
+		let activeCity = "MEDAN";
+
+		function renderCityList(cities) {
+			const container = document.getElementById('tixCityList');
+			container.innerHTML = '';
+			cities.forEach(city => {
+				const item = document.createElement('div');
+				item.className = 'tix-city-item';
+				item.innerText = city;
+				item.onclick = () => selectCity(city);
+				container.appendChild(item);
+			});
+		}
+
+		function filterCities() {
+			const keyword = document.getElementById('tixSearchInput').value.toUpperCase();
+			const filtered = citiesList.filter(c => c.includes(keyword));
+			renderCityList(filtered);
+		}
+
+		function openLocationModal() {
+			document.getElementById('tixSearchInput').value = '';
+			renderCityList(citiesList);
+			document.getElementById('tixLocationModal').classList.add('active');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeLocationModal() {
+			document.getElementById('tixLocationModal').classList.remove('active');
+			document.body.style.overflow = 'auto';
+		}
+
+		function selectCity(city) {
+			activeCity = city;
+			updateLocationUI(activeCity);
+			closeLocationModal();
+		}
+
+		function updateLocationUI(cityName) {
+			// Clean nama kota dari status GPS jika ada
+			let cleanCityName = cityName.replace(" (GPS AKTIF)", "").trim();
+
+			// 1. Update badge lokasi di hero section
+			const badgeText = document.getElementById('currentLocationBadgeText');
+			if (badgeText) {
+				badgeText.innerText = `15+ Lokasi ${cleanCityName}`;
+			}
+
+			// 2. Update teks kecamatan/lokasi pada kartu bank sampah
+			document.querySelectorAll('.district-name').forEach(el => {
+				el.innerText = `${cleanCityName} Central`;
+			});
+
+			// 3. UPDATE REAL-TIME TOMBOL "DETAIL LOKASI" KE GOOGLE MAPS PENCARIAN KOTA TERSEBUT!
+			const map1 = document.getElementById('mapLink1');
+			const map2 = document.getElementById('mapLink2');
+			const map3 = document.getElementById('mapLink3');
+
+			if (map1) map1.href = `https://www.google.com/maps/search/?api=1&query=Bank+Sampah+${encodeURIComponent(cleanCityName)}+Kota`;
+			if (map2) map2.href = `https://www.google.com/maps/search/?api=1&query=Bank+Sampah+${encodeURIComponent(cleanCityName)}+Baru`;
+			if (map3) map3.href = `https://www.google.com/maps/search/?api=1&query=Bank+Sampah+${encodeURIComponent(cleanCityName)}+Selayang`;
+		}
+
+		function useCurrentGPSLocation() {
+			const btn = document.getElementById('tixGpsBtn');
+			if (navigator.geolocation) {
+				btn.innerHTML = `<i class="fas fa-spinner fa-spin" style="margin-right: 6px;"></i> Mendeteksi Lokasi GPS...`;
+				navigator.geolocation.getCurrentPosition(
+					(position) => {
+						const lat = position.coords.latitude;
+						const lon = position.coords.longitude;
+						setTimeout(() => {
+							btn.innerHTML = `<i class="fas fa-crosshairs" style="margin-right: 6px;"></i> Gunakan Lokasi Saya Saat Ini`;
+							
+							// Memperbarui lokasi real-time berdasarkan koordinat GPS
+							selectCity("MEDAN (GPS AKTIF)");
+							
+							// Update link maps langsung dengan koordinat GPS akurat
+							const map1 = document.getElementById('mapLink1');
+							const map2 = document.getElementById('mapLink2');
+							const map3 = document.getElementById('mapLink3');
+							if (map1) map1.href = `https://www.google.com/maps/search/?api=1&query=Bank+Sampah&near=${lat},${lon}`;
+							if (map2) map2.href = `https://www.google.com/maps/search/?api=1&query=Bank+Sampah&near=${lat},${lon}`;
+							if (map3) map3.href = `https://www.google.com/maps/search/?api=1&query=Bank+Sampah&near=${lat},${lon}`;
+						}, 700);
+					},
+					(error) => {
+						alert("Gagal mendeteksi lokasi GPS. Silakan pilih kota secara manual.");
+						btn.innerHTML = `<i class="fas fa-crosshairs" style="margin-right: 6px;"></i> Gunakan Lokasi Saya Saat Ini`;
+					}
+				);
+			} else {
+				alert("Browser Anda tidak mendukung layanan geolokasi GPS.");
+			}
+		}
+
+		// Global Window Click Listener untuk Menutup Semua Modal
+		window.onclick = function(event) {
+			if (event.target.classList.contains('modal-overlay')) {
+				event.target.style.display = 'none';
+				document.body.style.overflow = 'auto';
+			}
+			if (event.target.classList.contains('tix-modal-backdrop')) {
+				closeLocationModal();
+			}
+		}
+
+		// Inisialisasi daftar kota saat halaman dimuat
+		document.addEventListener("DOMContentLoaded", () => {
+			renderCityList(citiesList);
+		});
+	</script>
+
+	<!-- Scripts Bawaan Template -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
